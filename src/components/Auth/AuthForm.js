@@ -1,13 +1,13 @@
-import { useState, useRef, useContext } from "react";
+import { useState, useRef,useContext } from "react";
 
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 
 import classes from "./AuthForm.module.css";
 import AuthContext from "../Store/auth-context";
 
 const AuthForm = () => {
 
-  const history = useHistory();
+  //const history = useHistory();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
@@ -54,7 +54,7 @@ const AuthForm = () => {
           return res.json();
         } else {
           return res.json().then((data) => {
-            let errorMessage = "Authentication Failed";
+            let errorMessage = "Authentication failed alert like the way you did in signup.";
             if (data && data.error && data.error.message) {
               errorMessage = data.error.message;
             }
@@ -64,8 +64,9 @@ const AuthForm = () => {
         }
       })
       .then((data) => {
-        authCtx.login(data.idToken);
-        history.replace('/');
+        // authCtx.login(data.idToken);
+        // history.replace('/');
+        console.log(data)
       })
       .catch((err) => {
         alert(err.message);
