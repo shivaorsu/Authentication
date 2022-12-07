@@ -42,7 +42,7 @@ const ProfileForm = () => {
         <input
           type="password"
           id="new-password"
-          minLength="7"
+          minLength="5"
           ref={newPasswordInputRef}
         />
       </div>
